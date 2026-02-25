@@ -1,3 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("CBRN NCC Website Loaded Successfully");
-});
+function showMessage() {
+    alert("NCC Cadets: Stay Alert, Stay Prepared, Stay Disciplined!");
+}
