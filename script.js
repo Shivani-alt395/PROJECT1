@@ -1,1 +1,2 @@
-console.log("CBRN Website Loaded Successfully");
+// You can add interactivity later
+console.log("CBRN Awareness page loaded");
