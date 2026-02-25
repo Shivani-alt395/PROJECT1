@@ -3,92 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CBRN Intel Hub</title>
+    <title>CBRN // Tactical Intelligence Portal</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header class="command-center">
-        <div class="status-badge">SYSTEM: ONLINE</div>
-        <nav class="main-nav">
-            <a href="#dossiers" class="nav-item">DOSSIERS</a>
-            <a href="#stats" class="nav-item">GLOBAL STATS</a>
-            <a href="#gear" class="nav-item">EQUIPMENT</a>
-        </nav>
+    <div class="scanline"></div>
+
+    <header class="hud-header">
+        <div class="status-indicator">
+            <span class="dot"></span> SYSTEM ACTIVE
+        </div>
+        <div class="logo">CBRN<span>SHIELD</span></div>
     </header>
 
-    <section class="hero-screen">
-        <div class="hero-overlay">
-            <h1>CBRN INTEL HUB</h1>
-            <p>ACCESSING CLASSIFIED SURVIVAL PROTOCOLS...</p>
+    <section class="hero">
+        <div class="glitch-wrapper">
+            <h1 class="glitch-text" data-text="AWARENESS IS DEFENSE">AWARENESS IS DEFENSE</h1>
         </div>
+        <p class="subtitle">Global Threat Intelligence & Response Protocol</p>
     </section>
 
-    <main id="dossiers" class="dossier-container">
-        
-        <div class="dossier-card chemical" data-aos="fade-up">
-            <div class="card-header">01 // CHEMICAL THREAT</div>
-            <div class="card-content">
-                <div class="gaming-icon">🧪</div>
-                <h2>CHEMICAL</h2>
-                <p>Industrial leaks or airborne agents. Some are odorless; others smell like freshly cut grass or bleach.</p>
-                <div class="intel-box">
-                    <strong>SURVIVAL TIP:</strong> Always move <em>perpendicular</em> to the wind to escape the plume.
+    <main class="content-wrapper">
+        <section id="dossiers" class="section-group">
+            <h2 class="section-label">THREAT DOSSIERS</h2>
+            
+            <div class="dossier-card" id="card-c">
+                <div class="card-num">01</div>
+                <h3>CHEMICAL</h3>
+                <p>Detection of toxic industrial chemicals and nerve agents.</p>
+                <div class="intel-tag">Senses: Almonds, Garlic, Fresh Grass</div>
+            </div>
+
+            <div class="dossier-card" id="card-b">
+                <div class="card-num">02</div>
+                <h3>BIOLOGICAL</h3>
+                <p>Invisible pathogens. Focus on filtration and high-level hygiene.</p>
+                <div class="intel-tag">Defense: HEPA-Filters, Quarantine</div>
+            </div>
+
+            <div class="dossier-card" id="card-r">
+                <div class="card-num">03</div>
+                <h3>RADIOLOGICAL</h3>
+                <p>Scattering of radioactive materials. Protection via Time & Distance.</p>
+                <div class="intel-tag">Protocol: Minimize Exposure Time</div>
+            </div>
+
+            <div class="dossier-card" id="card-n">
+                <div class="card-num">04</div>
+                <h3>NUCLEAR</h3>
+                <p>High-yield thermal and blast energy. Immediate cover required.</p>
+                <div class="intel-tag">Protocol: Lie Flat, Face Down</div>
+            </div>
+        </section>
+
+        <section id="map" class="section-group">
+            <h2 class="section-label">GLOBAL INCIDENT LOG</h2>
+            <div class="terminal">
+                <div class="terminal-nav">
+                    <button class="term-btn" onclick="fetchIntel('europe')">EU_INTEL</button>
+                    <button class="term-btn" onclick="fetchIntel('asia')">ASIA_INTEL</button>
+                    <button class="term-btn" onclick="fetchIntel('americas')">AMER_INTEL</button>
+                </div>
+                <div id="term-output" class="term-body">
+                    > SELECT REGION TO DECRYPT...
                 </div>
             </div>
-        </div>
-
-        <div class="dossier-card biological">
-            <div class="card-header">02 // BIO-HAZARD</div>
-            <div class="card-content">
-                <div class="gaming-icon">🦠</div>
-                <h2>BIOLOGICAL</h2>
-                <p>Invisible pathogens. Unlike chemicals, these take days to show symptoms. Hygiene is your primary shield.</p>
-                <div class="intel-box">
-                    <strong>SURVIVAL TIP:</strong> Filtered masks and sealed environments prevent inhalation.
-                </div>
-            </div>
-        </div>
-
-        <div class="dossier-card radiological">
-            <div class="card-header">03 // RADIATION</div>
-            <div class="card-content">
-                <div class="gaming-icon">☢️</div>
-                <h2>RADIOLOGICAL</h2>
-                <p>Scattered radioactive material. You can't see, smell, or feel radiation until it's too late.</p>
-                <div class="intel-box">
-                    <strong>THE TRIAD:</strong> Time (Limit it), Distance (Increase it), Shielding (Behind lead/concrete).
-                </div>
-            </div>
-        </div>
-
-        <div class="dossier-card nuclear">
-            <div class="card-header">04 // ATOMIC EVENT</div>
-            <div class="card-content">
-                <div class="gaming-icon">💥</div>
-                <h2>NUCLEAR</h2>
-                <p>The ultimate energy release. Flash, Blast, and Fallout. Knowledge is the difference between life and death.</p>
-                <div class="intel-box">
-                    <strong>SURVIVAL TIP:</strong> Lay flat, face down. Do not look at the flash. Wait for two blast waves.
-                </div>
-            </div>
-        </div>
-
+        </section>
     </main>
-    <section id="stats" class="map-section">
-        <h2 class="section-title">GLOBAL INTEL MAP</h2>
-        <div class="map-container">
-            <div class="map-ui">
-                <button class="region-btn" onclick="showIntel('chernobyl')">EUROPE</button>
-                <button class="region-btn" onclick="showIntel('tokyo')">ASIA</button>
-                <button class="region-btn" onclick="showIntel('bhopal')">S. ASIA</button>
-                <button class="region-btn" onclick="showIntel('fukushima')">PACIFIC</button>
-            </div>
-            <div id="intel-display" class="intel-display">
-                <p>SELECT A REGION TO UNLOCK HISTORICAL DATA</p>
-            </div>
-        </div>
-    </section>
 
+    <nav class="bottom-nav">
+        <a href="#" class="nav-link active"><span>🏠</span>HUB</a>
+        <a href="#dossiers" class="nav-link"><span>📂</span>INTEL</a>
+        <a href="#map" class="nav-link"><span>📡</span>MAP</a>
+    </nav>
+
+    <script src="script.js"></script>
 </body>
 </html>
