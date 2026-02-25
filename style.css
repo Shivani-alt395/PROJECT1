@@ -1,116 +1,167 @@
 :root {
-    --bg-black: #0a0a0a;
-    --card-gray: #1a1a1a;
-    --yellow: #ffcc00;
+    --neon-yellow: #ccff00;
+    --neon-blue: #00d4ff;
+    --neon-red: #ff0055;
+    --dark-void: #0d0d0d;
 }
 
 body {
     margin: 0;
-    padding: 0;
-    background: var(--bg-black);
-    color: white;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--dark-void);
+    color: #e0e0e0;
+    font-family: 'Courier New', Courier, monospace; /* Gamer/Hacker vibe */
 }
 
-/* Navbar */
+/* Navbar HUD */
 .navbar {
+    padding: 20px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    background: #000;
-    border-bottom: 2px solid var(--yellow);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    background: rgba(0,0,0,0.9);
+    border-bottom: 1px solid var(--neon-yellow);
 }
 
-.logo { font-weight: 800; font-size: 1.2rem; color: var(--yellow); }
-.logo span { color: white; }
-.menu-icon { font-size: 1.5rem; cursor: pointer; }
+.logo span { color: var(--neon-yellow); text-shadow: 0 0 10px var(--neon-yellow); }
 
-/* Side Menu */
-.side-menu {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 200;
-    top: 0;
-    right: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.4s;
-    padding-top: 60px;
-    border-left: 0px solid var(--yellow);
-}
-
-.side-menu a {
-    padding: 15px 30px;
-    text-decoration: none;
-    font-size: 1.2rem;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-}
-
-.side-menu a:hover { color: var(--yellow); }
-.close-btn {
-    position: absolute;
-    top: 10px;
-    left: 20px;
-    font-size: 36px;
-    cursor: pointer;
-}
-
-/* Hero Section */
+/* Hero Glitch Effect */
 .hero {
+    padding: 50px 20px;
     text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1518152006812-edab29b069ac?q=80&w=600');
-    background-size: cover;
+    background: radial-gradient(circle, #1a1a1a 0%, #000 100%);
 }
 
-.hero h1 { font-size: 2rem; color: var(--yellow); margin-bottom: 5px; }
-
-/* Acronym Breakdown */
-.acronym-section { padding: 30px 15px; }
-.section-title {
-    text-align: center;
-    font-weight: 900;
-    margin-bottom: 25px;
-    letter-spacing: 3px;
-    color: #555;
+.hero h1 {
+    font-size: 3rem;
+    color: white;
+    letter-spacing: 5px;
+    margin-bottom: 0;
 }
 
+/* Progress Bar */
+.progress-container {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: var(--neon-blue);
+}
+
+.progress-bar {
+    width: 250px;
+    height: 10px;
+    background: #333;
+    margin: 10px auto;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 10%;
+    height: 100%;
+    background: var(--neon-blue);
+    box-shadow: 0 0 15px var(--neon-blue);
+    transition: width 0.5s ease;
+}
+
+/* Acronym Cards */
 .acronym-grid {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    padding: 20px;
+    gap: 20px;
 }
 
-.letter-box {
-    background: var(--card-gray);
-    padding: 20px;
-    border-radius: 10px;
-    border-left: 8px solid var(--accent);
+.card {
+    background: #161616;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid #333;
+    transition: 0.3s;
+}
+
+.card:hover {
+    border-color: var(--neon-yellow);
+    transform: scale(1.02);
 }
 
 .letter {
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: 900;
-    color: var(--accent);
-    line-height: 1;
+    margin-right: 20px;
+    width: 80px;
+    text-align: center;
 }
 
-.full-form {
-    font-size: 1.2rem;
+.chemical { color: #00ff88; text-shadow: 0 0 10px #00ff88; }
+.biological { color: #a2ff00; text-shadow: 0 0 10px #a2ff00; }
+.radiological { color: #ffaa00; text-shadow: 0 0 10px #ffaa00; }
+.nuclear { color: #ff3300; text-shadow: 0 0 10px #ff3300; }
+
+.info h3 { margin: 0; color: white; letter-spacing: 2px; }
+.tagline { font-size: 0.7rem; color: #888; text-transform: uppercase; margin-bottom: 5px; }
+.action-tag {
+    display: inline-block;
+    margin-top: 10px;
+    background: #333;
+    padding: 5px 10px;
+    font-size: 0.7rem;
     font-weight: bold;
-    margin: 5px 0 10px 0;
-    text-transform: uppercase;
+    border-radius: 4px;
+    color: var(--neon-yellow);
 }
 
-.letter-box p {
-    font-size: 0.95rem;
-    color: #ccc;
-    margin: 0;
+/* Sidebar */
+.side-menu {
+    height: 100%; width: 0; position: fixed; z-index: 200;
+    top: 0; right: 0; background: #000; overflow-x: hidden;
+    transition: 0.5s; padding-top: 60px;
 }
+
+.side-menu a {
+    padding: 20px; text-decoration: none; font-size: 1.5rem;
+    color: var(--neon-yellow); display: block;
+}
+
+.quiz-section {
+    padding: 40px 20px;
+    background: #000;
+}
+
+.quiz-card {
+    background: #111;
+    border: 2px dashed var(--neon-blue);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.opt-btn {
+    background: transparent;
+    border: 1px solid var(--neon-blue);
+    color: white;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+.opt-btn:hover {
+    background: var(--neon-blue);
+    color: black;
+}
+
+.rank-display {
+    font-size: 0.8rem;
+    color: var(--neon-yellow);
+    margin-top: 15px;
+    letter-spacing: 2px;
+}
+
+#userRank { font-weight: bold; text-decoration: underline; }
