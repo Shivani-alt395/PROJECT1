@@ -2,55 +2,77 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CBRN Awareness Program</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBRN Awareness | Defense & Response</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header class="site-header">
-        <h1>CBRN Awareness</h1>
-        <p>Learn about Chemical, Biological, Radiological & Nuclear hazards</p>
+    <div id="status-banner">⚠️ EMERGENCY ALERT: SIMULATED PROTOCOL ACTIVE</div>
+
+    <header>
+        <div class="logo">☢️ CBRN<span>SHIELD</span></div>
+        <nav>
+            <button class="btn-toggle" id="alertBtn">Test Alert</button>
+        </nav>
     </header>
 
-    <section class="content-card">
-        <h2>1. What is CBRN?</h2>
-        <p>
-            CBRN stands for Chemical, Biological, Radiological and Nuclear.
-            These represent categories of hazardous materials that can cause
-            severe harm to people, infrastructure, and the environment.
-        </p>
-    </section>
-
-    <section class="content-card">
-        <h2>2. MOPP Level 0–5</h2>
-
-        <div class="img-container">
-            <img src="mopp1.jpg" alt="MOPP protective gear">
+    <section class="hero">
+        <div class="hero-content">
+            <h1>CBRN AWARENESS</h1>
+            <p>Detection. Protection. Decontamination.</p>
+            <button class="btn-primary" id="actionBtn">View Quick Action Guide</button>
         </div>
-
-        <ul class="mopp-list">
-            <li><strong>MOPP Level 0:</strong> Protective mask carried.</li>
-            <li><strong>MOPP Level 1:</strong> Overgarment worn.</li>
-            <li><strong>MOPP Level 2:</strong> Overgarment + boots.</li>
-            <li><strong>MOPP Level 3:</strong> Mask + overgarment + boots.</li>
-            <li><strong>MOPP Level 4:</strong> Full protective suit + gloves + mask.</li>
-        </ul>
     </section>
 
-    <section class="content-card">
-        <h2>3. About CBRN</h2>
-        <p>
-            CBRN education helps individuals understand how to recognize,
-            respond to, and protect against chemical, biological,
-            radiological, and nuclear threats. NCC cadets gain readiness
-            through training and safety protocols.
-        </p>
-    </section>
+    <main class="container">
+        <section class="grid">
+            <div class="card" data-type="chemical">
+                <div class="icon">🧪</div>
+                <h2>Chemical</h2>
+                <p>Industrial leaks or weaponized agents. Look for low clouds and peculiar smells.</p>
+                <ul class="steps">
+                    <li>Move upwind immediately</li>
+                    <li>Seek high ground</li>
+                    <li>Cover all exposed skin</li>
+                </ul>
+            </div>
 
-    <footer class="site-footer">
-        <p>© 2026 CBRN Awareness Program</p>
-    </footer>
+            <div class="card" data-type="biological">
+                <div class="icon">🦠</div>
+                <h2>Biological</h2>
+                <p>Bacteria, viruses, or toxins. Often invisible with delayed symptoms.</p>
+                <ul class="steps">
+                    <li>Use N95 or better filtration</li>
+                    <li>Practice strict hygiene</li>
+                    <li>Follow quarantine orders</li>
+                </ul>
+            </div>
 
+            <div class="card" data-type="radiological">
+                <div class="icon">☢️</div>
+                <h2>Radiological</h2>
+                <p>Scattering of radioactive material via "Dirty Bombs" or spills.</p>
+                <ul class="steps">
+                    <li>Time: Limit exposure</li>
+                    <li>Distance: Move away</li>
+                    <li>Shielding: Use heavy barriers</li>
+                </ul>
+            </div>
+
+            <div class="card" data-type="nuclear">
+                <div class="icon">💥</div>
+                <h2>Nuclear</h2>
+                <p>High-yield explosions resulting in heat, blast, and radiation fallout.</p>
+                <ul class="steps">
+                    <li>Drop and cover</li>
+                    <li>Go deep underground</li>
+                    <li>Stay inside for 24+ hours</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
