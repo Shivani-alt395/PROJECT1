@@ -1,1 +1,1 @@
-console.log("CBRN NCC Website Loaded Successfully");
+console.log("CBRN Website Loaded Successfully");
