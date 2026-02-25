@@ -1,3 +1,1 @@
-function showMessage() {
-    alert("NCC Cadets: Stay Prepared. Stay Disciplined. Stay Mission Ready!");
-}
+console.log("CBRN Awareness Page Loaded Successfully!");
