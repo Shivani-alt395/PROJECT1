@@ -1,3 +1,4 @@
+/* Base reset */
 * {
     margin: 0;
     padding: 0;
@@ -5,94 +6,87 @@
     font-family: Arial, sans-serif;
 }
 
+/* Page background */
 body {
-    background: linear-gradient(135deg, #0f2027, #203a43, #14532d);
-    padding: 15px;
-    color: #ffffff;
-}
-
-/* HEADER */
-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-header h1 {
-    font-size: 28px;
-    color: #ff9933;   /* saffron accent */
-    letter-spacing: 1px;
-}
-
-header p {
-    font-size: 16px;
-    opacity: 0.9;
-}
-
-/* CARD DESIGN */
-.card {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(8px);
+    background: #eef2f6;
+    color: #1a202c;
     padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-    transition: 0.3s ease;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-}
-
-.card h2 {
-    margin-bottom: 12px;
-    color: #00ffae;
-}
-
-.card p {
-    line-height: 1.6;
-    color: #f1f1f1;
-}
-
-.card ul {
-    margin-top: 10px;
-    padding-left: 15px;
-}
-
-.card li {
-    margin-bottom: 6px;
-}
-
-/* IMAGE */
-.card img {
-    width: 100%;
-    max-width: 420px;
-    display: block;
-    margin: 15px auto;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,255,174,0.4);
-}
-
-/* FOOTER */
-footer {
+/* Header */
+.site-header {
     text-align: center;
-    margin-top: 25px;
-    font-size: 14px;
-    color: #ddd;
+    margin-bottom: 25px;
 }
 
-/* DESKTOP VIEW */
-@media (min-width: 768px) {
+.site-header h1 {
+    font-size: 28px;
+    color: #155e63;
+}
 
-    body {
-        padding: 40px;
+.site-header p {
+    color: #3b3b3b;
+    margin-top: 8px;
+    font-size: 16px;
+}
+
+/* Content cards */
+.content-card {
+    background: white;
+    padding: 20px 18px;
+    margin-bottom: 22px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.content-card h2 {
+    font-size: 22px;
+    color: #175e55;
+    margin-bottom: 12px;
+}
+
+.content-card p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Image */
+.img-container {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.img-container img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 8px;
+}
+
+/* MOPP list */
+.mopp-list {
+    margin-top: 12px;
+    list-style: disc inside;
+}
+
+.mopp-list li {
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+/* Footer */
+.site-footer {
+    text-align: center;
+    font-size: 14px;
+    color: #4a4a4a;
+    margin-top: 30px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .site-header h1 {
+        font-size: 24px;
     }
-
-    .card {
-        max-width: 850px;
-        margin: 25px auto;
-    }
-
-    header h1 {
-        font-size: 36px;
+    .content-card h2 {
+        font-size: 20px;
     }
 }
