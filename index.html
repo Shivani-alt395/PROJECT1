@@ -3,58 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CBRN Mobile Guide</title>
+    <title>CBRN Mission Readiness</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="logo">☢️ CBRN<span>AWARE</span></div>
+        <div class="logo">OPERATIVE <span>01</span></div>
         <div class="menu-icon" id="menuOpen">☰</div>
     </nav>
 
     <div class="side-menu" id="sideMenu">
         <div class="close-btn" id="menuClose">×</div>
-        <a href="#">Home</a>
-        <a href="#about">What is CBRN?</a>
-        <a href="#emergency">Emergency Steps</a>
-        <a href="#hotline">Hotline: 911 / 112</a>
+        <a href="#about">Mission Briefing</a>
+        <a href="#decon">Decon Protocol</a>
+        <a href="#">Training Quiz</a>
     </div>
 
     <header class="hero">
-        <h1>DEFENSE & AWARENESS</h1>
-        <p>Mobile-Ready Safety Protocols</p>
+        <h1 class="glitch" data-text="CBRN DEFENSE">CBRN DEFENSE</h1>
+        <p>MISSION: SURVIVAL & AWARENESS</p>
+        <div class="progress-container">
+            <span>INTEL READINESS:</span>
+            <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        </div>
     </header>
 
-    <section class="acronym-section" id="about">
-        <div class="section-title">THE ACRONYM</div>
+    <main class="acronym-section" id="about">
+        <h2 class="section-title">THREAT CLASSIFICATION</h2>
         
         <div class="acronym-grid">
-            <div class="letter-box" style="--accent: #ffeb3b;">
-                <div class="letter">C</div>
-                <div class="full-form">CHEMICAL</div>
-                <p>Poisonous vapors, aerosols, or liquids that have toxic effects on people, animals, or plants.</p>
+            <div class="card" onclick="updateProgress(25)">
+                <div class="letter chemical">C</div>
+                <div class="info">
+                    <h3>CHEMICAL</h3>
+                    <p class="tagline">Invisible Killers</p>
+                    <p>Think industrial leaks or nerve agents. If you smell bitter almonds or see a mist—**RUN.**</p>
+                    <span class="action-tag">ACTION: Move Upwind</span>
+                </div>
             </div>
 
-            <div class="letter-box" style="--accent: #4caf50;">
-                <div class="letter">B</div>
-                <div class="full-form">BIOLOGICAL</div>
-                <p>Microorganisms like viruses or bacteria that cause disease or death (e.g., Anthrax, Ebola).</p>
+            <div class="card" onclick="updateProgress(50)">
+                <div class="letter biological">B</div>
+                <div class="info">
+                    <h3>BIOLOGICAL</h3>
+                    <p class="tagline">Microscopic Warfare</p>
+                    <p>Viruses and bacteria. They don't explode; they spread. Hygiene is your best armor.</p>
+                    <span class="action-tag">ACTION: Mask Up</span>
+                </div>
             </div>
 
-            <div class="letter-box" style="--accent: #ff9800;">
-                <div class="letter">R</div>
-                <div class="full-form">RADIOLOGICAL</div>
-                <p>The use of "dirty bombs" or industrial spills to spread radioactive material over an area.</p>
+            <div class="card" onclick="updateProgress(75)">
+                <div class="letter radiological">R</div>
+                <div class="info">
+                    <h3>RADIOLOGICAL</h3>
+                    <p class="tagline">The Silent Glow</p>
+                    <p>"Dirty bombs" scatter radiation. You can't see it, but it's there. Minimize your time near the site.</p>
+                    <span class="action-tag">ACTION: Distance = Life</span>
+                </div>
             </div>
 
-            <div class="letter-box" style="--accent: #f44336;">
-                <div class="letter">N</div>
-                <div class="full-form">NUCLEAR</div>
-                <p>A massive explosion causing intense heat, blinding light, blast pressure, and radioactive fallout.</p>
+            <div class="card" onclick="updateProgress(100)">
+                <div class="letter nuclear">N</div>
+                <div class="info">
+                    <h3>NUCLEAR</h3>
+                    <p class="tagline">Total Annihilation</p>
+                    <p>Blinding light and heat. If you see the flash, drop to the ground and cover your head instantly.</p>
+                    <span class="action-tag">ACTION: Lie Flat</span>
+                </div>
+            </div>
+        </div>
+        <section class="quiz-section" id="training">
+        <h2 class="section-title">COMBAT READY?</h2>
+        <div class="quiz-card">
+            <p id="question">Loading mission briefing...</p>
+            <div id="options" class="options-grid">
+                </div>
+            <div class="rank-display">
+                CURRENT RANK: <span id="userRank">RECRUIT</span>
             </div>
         </div>
     </section>
+    </main>
 
     <script src="script.js"></script>
 </body>
