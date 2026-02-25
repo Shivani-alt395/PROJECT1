@@ -77,7 +77,7 @@ body{
 }
 
 /* MOPP4 */
-.mopp4{
+.mopp{
     margin-top:40px;
     background:white;
     padding:30px;
@@ -86,7 +86,7 @@ body{
     box-shadow:0 10px 25px rgba(0,0,0,0.1);
 }
 
-.mopp4 img{
+.mopp img{
     width:100%;
     max-width:500px;
     margin-top:15px;
@@ -107,4 +107,5 @@ footer{
     color:white;
     text-align:center;
     padding:15px;
+
 }
