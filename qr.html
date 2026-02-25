@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate CBRN QR Code</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <style>
+        body{
+            margin:0;
+            font-family:Arial;
+            text-align:center;
+            background:#f2f2f2;
+            padding:20px;
+        }
+
+        h1{
+            color:darkgreen;
+        }
+
+        #qrcode{
+            margin:30px auto;
+        }
+
+        .box{
+            background:white;
+            padding:20px;
+            border-radius:12px;
+            box-shadow:0 4px 10px rgba(0,0,0,0.1);
+            max-width:400px;
+            margin:auto;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h1>Scan to View CBRN Website</h1>
+    <div id="qrcode"></div>
+</div>
+
+<script>
+    // Replace this with your hosted website link
+    var websiteURL = "https://yourdomain.com/cbn.html";
+
+    new QRCode(document.getElementById("qrcode"), {
+        text: websiteURL,
+        width: 250,
+        height: 250
+    });
+</script>
+
+</body>
+</html>
