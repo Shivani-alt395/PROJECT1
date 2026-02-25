@@ -1,3 +1,3 @@
 function showMessage() {
-    alert("NCC Cadets: Stay Alert, Stay Prepared, Stay Disciplined!");
+    alert("NCC Cadets: Stay Prepared. Stay Disciplined. Stay Mission Ready!");
 }
