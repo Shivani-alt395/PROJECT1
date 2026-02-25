@@ -3,75 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CBRN Awareness | Defense & Response</title>
+    <title>CBRN Mobile Guide</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div id="status-banner">⚠️ EMERGENCY ALERT: SIMULATED PROTOCOL ACTIVE</div>
+    <nav class="navbar">
+        <div class="logo">☢️ CBRN<span>AWARE</span></div>
+        <div class="menu-icon" id="menuOpen">☰</div>
+    </nav>
 
-    <header>
-        <div class="logo">☢️ CBRN<span>SHIELD</span></div>
-        <nav>
-            <button class="btn-toggle" id="alertBtn">Test Alert</button>
-        </nav>
+    <div class="side-menu" id="sideMenu">
+        <div class="close-btn" id="menuClose">×</div>
+        <a href="#">Home</a>
+        <a href="#about">What is CBRN?</a>
+        <a href="#emergency">Emergency Steps</a>
+        <a href="#hotline">Hotline: 911 / 112</a>
+    </div>
+
+    <header class="hero">
+        <h1>DEFENSE & AWARENESS</h1>
+        <p>Mobile-Ready Safety Protocols</p>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>CBRN AWARENESS</h1>
-            <p>Detection. Protection. Decontamination.</p>
-            <button class="btn-primary" id="actionBtn">View Quick Action Guide</button>
+    <section class="acronym-section" id="about">
+        <div class="section-title">THE ACRONYM</div>
+        
+        <div class="acronym-grid">
+            <div class="letter-box" style="--accent: #ffeb3b;">
+                <div class="letter">C</div>
+                <div class="full-form">CHEMICAL</div>
+                <p>Poisonous vapors, aerosols, or liquids that have toxic effects on people, animals, or plants.</p>
+            </div>
+
+            <div class="letter-box" style="--accent: #4caf50;">
+                <div class="letter">B</div>
+                <div class="full-form">BIOLOGICAL</div>
+                <p>Microorganisms like viruses or bacteria that cause disease or death (e.g., Anthrax, Ebola).</p>
+            </div>
+
+            <div class="letter-box" style="--accent: #ff9800;">
+                <div class="letter">R</div>
+                <div class="full-form">RADIOLOGICAL</div>
+                <p>The use of "dirty bombs" or industrial spills to spread radioactive material over an area.</p>
+            </div>
+
+            <div class="letter-box" style="--accent: #f44336;">
+                <div class="letter">N</div>
+                <div class="full-form">NUCLEAR</div>
+                <p>A massive explosion causing intense heat, blinding light, blast pressure, and radioactive fallout.</p>
+            </div>
         </div>
     </section>
-
-    <main class="container">
-        <section class="grid">
-            <div class="card" data-type="chemical">
-                <div class="icon">🧪</div>
-                <h2>Chemical</h2>
-                <p>Industrial leaks or weaponized agents. Look for low clouds and peculiar smells.</p>
-                <ul class="steps">
-                    <li>Move upwind immediately</li>
-                    <li>Seek high ground</li>
-                    <li>Cover all exposed skin</li>
-                </ul>
-            </div>
-
-            <div class="card" data-type="biological">
-                <div class="icon">🦠</div>
-                <h2>Biological</h2>
-                <p>Bacteria, viruses, or toxins. Often invisible with delayed symptoms.</p>
-                <ul class="steps">
-                    <li>Use N95 or better filtration</li>
-                    <li>Practice strict hygiene</li>
-                    <li>Follow quarantine orders</li>
-                </ul>
-            </div>
-
-            <div class="card" data-type="radiological">
-                <div class="icon">☢️</div>
-                <h2>Radiological</h2>
-                <p>Scattering of radioactive material via "Dirty Bombs" or spills.</p>
-                <ul class="steps">
-                    <li>Time: Limit exposure</li>
-                    <li>Distance: Move away</li>
-                    <li>Shielding: Use heavy barriers</li>
-                </ul>
-            </div>
-
-            <div class="card" data-type="nuclear">
-                <div class="icon">💥</div>
-                <h2>Nuclear</h2>
-                <p>High-yield explosions resulting in heat, blast, and radiation fallout.</p>
-                <ul class="steps">
-                    <li>Drop and cover</li>
-                    <li>Go deep underground</li>
-                    <li>Stay inside for 24+ hours</li>
-                </ul>
-            </div>
-        </section>
-    </main>
 
     <script src="script.js"></script>
 </body>
