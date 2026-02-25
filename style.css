@@ -1,165 +1,199 @@
+/* --- THEME SETUP --- */
 :root {
-    --bg-light: #e0e5ec;
-    --text-dark: #2d3436;
-    --neon-blue: #00a8ff;
-    --hazard-orange: #ff9f43;
-    --shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5);
+    --bg-dark: #0a0b0d;        /* Deep Black/Gray */
+    --card-bg: #161b22;       /* Slate Dark Blue */
+    --neon-blue: #58a6ff;     /* Cyber Blue */
+    --accent-glow: #1f6feb;   /* Deeper Glow */
+    --text-main: #c9d1d9;     /* Soft White */
+    --text-bright: #ffffff;   /* Pure White */
+    --hazard-yellow: #f1c40f; 
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
-    background-color: var(--bg-light);
-    color: var(--text-dark);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
     margin: 0;
+    overflow-x: hidden;
 }
 
-/* Fixed Command Bar */
+/* --- COMMAND BAR (Sticky Menu) --- */
 .command-center {
     position: sticky;
     top: 0;
-    background: rgba(224, 229, 236, 0.9);
-    backdrop-filter: blur(10px);
+    background: rgba(10, 11, 13, 0.95);
+    backdrop-filter: blur(12px);
     display: flex;
     justify-content: space-between;
-    padding: 15px 5%;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--glass-border);
     z-index: 1000;
 }
 
 .status-badge {
-    background: #2ecc71;
-    color: white;
-    padding: 5px 10px;
-    font-size: 0.7rem;
-    font-weight: bold;
-    border-radius: 4px;
+    background: rgba(46, 204, 113, 0.2);
+    color: #2ecc71;
+    border: 1px solid #2ecc71;
+    padding: 4px 10px;
+    font-size: 0.65rem;
+    font-weight: 800;
+    border-radius: 20px;
+    text-shadow: 0 0 5px #2ecc71;
 }
 
 .main-nav a {
     text-decoration: none;
-    color: var(--text-dark);
-    font-weight: bold;
-    margin-left: 20px;
-    font-size: 0.9rem;
+    color: var(--text-main);
+    font-weight: 600;
+    margin-left: 15px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
     transition: 0.3s;
 }
 
-.main-nav a:hover { color: var(--neon-blue); }
+.main-nav a:hover {
+    color: var(--neon-blue);
+    text-shadow: 0 0 8px var(--neon-blue);
+}
 
-/* Hero Area */
+/* --- HERO SCREEN --- */
 .hero-screen {
-    height: 40vh;
+    height: 35vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(135deg, #00a8ff 0%, #9c88ff 100%);
-    color: white;
+    background: linear-gradient(to bottom, rgba(13, 17, 23, 0.4), var(--bg-dark)),
+                url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000');
+    background-size: cover;
+    background-position: center;
 }
 
-.hero-screen h1 { font-size: 2.5rem; letter-spacing: 5px; }
+.hero-screen h1 {
+    font-size: 1.8rem;
+    color: var(--text-bright);
+    letter-spacing: 4px;
+    margin: 0;
+    text-shadow: 0 0 20px rgba(88, 166, 255, 0.5);
+}
 
-/* Dossier Cards */
+.hero-screen p {
+    font-size: 0.7rem;
+    color: var(--neon-blue);
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* --- DOSSIER CARDS (Dark Glass) --- */
 .dossier-container {
-    padding: 30px 5%;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
 }
 
 .dossier-card {
-    background: var(--bg-light);
-    border-radius: 20px;
-    box-shadow: var(--shadow);
-    overflow: hidden;
-    transition: transform 0.3s;
+    background: var(--card-bg);
+    border-radius: 15px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: transform 0.2s, border-color 0.2s;
 }
 
-.dossier-card:active { transform: scale(0.98); }
+.dossier-card:active {
+    transform: scale(0.97);
+    border-color: var(--neon-blue);
+}
 
 .card-header {
-    background: var(--text-dark);
-    color: var(--bg-light);
+    background: rgba(0,0,0,0.3);
+    color: var(--neon-blue);
     padding: 10px 20px;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    border-bottom: 1px solid var(--glass-border);
+    letter-spacing: 1.5px;
 }
 
 .card-content {
-    padding: 30px;
+    padding: 25px;
 }
 
 .gaming-icon {
-    font-size: 3rem;
-    margin-bottom: 15px;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.card-content h2 {
+    color: var(--text-bright);
+    margin: 5px 0;
+    font-size: 1.5rem;
+}
+
+.card-content p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #8b949e;
 }
 
 .intel-box {
-    margin-top: 20px;
-    padding: 15px;
-    background: white;
-    border-radius: 10px;
-    border-left: 5px solid var(--neon-blue);
-    font-size: 0.9rem;
+    margin-top: 15px;
+    padding: 12px;
+    background: rgba(88, 166, 255, 0.05);
+    border-radius: 8px;
+    border-left: 4px solid var(--neon-blue);
+    font-size: 0.85rem;
+    color: var(--text-main);
 }
 
-/* Color Themes for Dossiers */
-.chemical .intel-box { border-color: #2ecc71; }
-.biological .intel-box { border-color: #f1c40f; }
-.radiological .intel-box { border-color: #e67e22; }
-.nuclear .intel-box { border-color: #e74c3c; }
-
-
+/* --- MAP SECTION (Dark Tactical) --- */
 .map-section {
-    padding: 50px 5%;
-    background: #f0f3f7;
-}
-
-.section-title {
-    text-align: center;
-    letter-spacing: 3px;
-    font-size: 1.2rem;
-    margin-bottom: 30px;
+    padding: 40px 20px;
 }
 
 .map-container {
-    background: white;
+    background: var(--card-bg);
     padding: 20px;
-    border-radius: 20px;
-    box-shadow: var(--shadow);
-}
-
-.map-ui {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 20px;
+    border-radius: 15px;
+    border: 1px solid var(--glass-border);
 }
 
 .region-btn {
-    background: var(--bg-light);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    box-shadow: 4px 4px 8px rgb(163,177,198,0.4);
+    background: #21262d;
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 0.75rem;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.2s;
+    transition: 0.3s;
 }
 
-.region-btn:active {
-    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.1);
+.region-btn:hover {
+    border-color: var(--neon-blue);
     color: var(--neon-blue);
+    box-shadow: 0 0 10px rgba(88, 166, 255, 0.3);
 }
 
 .intel-display {
-    min-height: 100px;
-    padding: 20px;
-    background: #2d3436;
-    color: #00d4ff;
-    border-radius: 10px;
+    margin-top: 20px;
+    min-height: 120px;
+    padding: 15px;
+    background: #0d1117;
+    color: var(--neon-blue);
+    border-radius: 8px;
     font-family: 'Courier New', monospace;
-    font-size: 0.9rem;
-    border: 1px solid var(--neon-blue);
+    font-size: 0.85rem;
+    border: 1px solid #30363d;
+    line-height: 1.6;
 }
