@@ -1,85 +1,101 @@
-// Side Menu Logic
-const menuOpen = document.getElementById('menuOpen');
-const menuClose = document.getElementById('menuClose');
-const sideMenu = document.getElementById('sideMenu');
+/**
+ * CBRN INTEL HUB - CORE LOGIC
+ * Includes: Navigation, Progress Tracking, and Global Intel Decryption
+ */
 
-menuOpen.onclick = () => sideMenu.style.width = "100%";
-menuClose.onclick = () => sideMenu.style.width = "0";
-
-// Progress Bar Simulation
-function updateProgress(amount) {
-    const bar = document.getElementById('progressFill');
-    bar.style.width = amount + "%";
+document.addEventListener('DOMContentLoaded', () => {
     
-    if(amount === 100) {
+    // --- 1. GLOBAL INTEL MAP SYSTEM ---
+    const intelDisplay = document.getElementById('intel-display');
+    
+    const mapIntel = {
+        chernobyl: {
+            title: "EUROPE // CHERNOBYL (1986)",
+            data: "Massive radiological release due to reactor failure. Resulted in a 30km exclusion zone that remains active. Lesson: Radiation containment protocols."
+        },
+        tokyo: {
+            title: "ASIA // TOKYO (1995)",
+            data: "Subway sarin gas incident. A major Chemical (C) event. Taught the world the importance of rapid transit decontamination and air monitoring."
+        },
+        bhopal: {
+            title: "S. ASIA // BHOPAL (1984)",
+            data: "Toxic Industrial Chemical (TIC) leak. Over 500,000 people exposed. Highlighted the 'C' in CBRN as a major industrial safety concern."
+        },
+        fukushima: {
+            title: "PACIFIC // FUKUSHIMA (2011)",
+            data: "Triple disaster (Earthquake, Tsunami, Nuclear). Proved that natural disasters can trigger 'N' events. Emphasized resilient infrastructure."
+        }
+    };
+
+    // Global function attached to buttons
+    window.showIntel = function(region) {
+        if (!intelDisplay) return;
+
+        // Visual feedback for the "decryption" feel
+        intelDisplay.style.opacity = "0.5";
+        intelDisplay.textContent = "DECRYPTING ENCRYPTED DOSSIER...";
+
         setTimeout(() => {
-            alert("MISSION INTEL COMPLETE: You are now CBRN certified.");
-        }, 500);
-    }
-}
-// Quiz Data
-const missionData = [
-    {
-        q: "You see a low-lying yellow mist. What is your move?",
-        options: ["Run toward it", "Move upwind/High ground", "Lay down"],
-        correct: 1
-    },
-    {
-        q: "A 'Dirty Bomb' is classified as what type of threat?",
-        options: ["Chemical", "Biological", "Radiological"],
-        correct: 2
-    },
-    {
-        q: "What are the three pillars of Radiation defense?",
-        options: ["Time, Distance, Shielding", "Run, Hide, Fight", "Water, Food, Mask"],
-        correct: 0
-    }
-];
+            const info = mapIntel[region];
+            intelDisplay.style.opacity = "1";
+            intelDisplay.innerHTML = `<strong style="color: white;">${info.title}</strong><br><br>${info.data}`;
+        }, 600);
+    };
 
-let currentMission = 0;
-let score = 0;
 
-function loadMission() {
-    const qBody = document.getElementById('question');
-    const optBody = document.getElementById('options');
+    // --- 2. SMOOTH SCROLLING FOR MENU ---
+    const navItems = document.querySelectorAll('.nav-item');
     
-    if (currentMission < missionData.length) {
-        qBody.textContent = missionData[currentMission].q;
-        optBody.innerHTML = '';
-        
-        missionData[currentMission].options.forEach((opt, index) => {
-            const btn = document.createElement('button');
-            btn.className = 'opt-btn';
-            btn.textContent = opt;
-            btn.onclick = () => checkAnswer(index);
-            optBody.appendChild(btn);
+    navItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70, // Adjust for sticky header
+                    behavior: 'smooth'
+                });
+            }
         });
-    } else {
-        finishMission();
-    }
-}
+    });
 
-function checkAnswer(choice) {
-    if (choice === missionData[currentMission].correct) {
-        score++;
-        updateProgress((score / missionData.length) * 100);
-    }
-    currentMission++;
-    loadMission();
-}
 
-function finishMission() {
-    const qBody = document.getElementById('question');
-    const optBody = document.getElementById('options');
-    const rank = document.getElementById('userRank');
+    // --- 3. SCROLL REVEAL (Optional Gaming Feel) ---
+    // Makes cards pop in as the student scrolls down
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.dossier-card').forEach(card => {
+        card.style.opacity = "0";
+        card.style.transform = "translateY(20px)";
+        card.style.transition = "all 0.6s ease-out";
+        observer.observe(card);
+    });
+
+});
+
+// --- 4. MOBILE PROGRESS INDICATOR ---
+// Helps students know how much of the hub they've explored
+window.onscroll = function() {
+    let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let scrolled = (winScroll / height) * 100;
     
-    qBody.textContent = "TRAINING COMPLETE";
-    optBody.innerHTML = `<p>Scored: ${score}/${missionData.length}</p>`;
-    
-    if (score === 3) rank.textContent = "CBRN SPECIALIST";
-    else if (score >= 1) rank.textContent = "FIELD AGENT";
-    else rank.textContent = "WASHED OUT";
-}
-
-// Initial Load
-window.onload = loadMission;
+    // If you have a progress bar element
+    const progressBar = document.getElementById("progressFill");
+    if (progressBar) {
+        progressBar.style.width = scrolled + "%";
+    }
+};
