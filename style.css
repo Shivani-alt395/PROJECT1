@@ -1,167 +1,165 @@
 :root {
-    --neon-yellow: #ccff00;
-    --neon-blue: #00d4ff;
-    --neon-red: #ff0055;
-    --dark-void: #0d0d0d;
+    --bg-light: #e0e5ec;
+    --text-dark: #2d3436;
+    --neon-blue: #00a8ff;
+    --hazard-orange: #ff9f43;
+    --shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5);
 }
 
 body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    background: var(--dark-void);
-    color: #e0e0e0;
-    font-family: 'Courier New', Courier, monospace; /* Gamer/Hacker vibe */
 }
 
-/* Navbar HUD */
-.navbar {
-    padding: 20px;
+/* Fixed Command Bar */
+.command-center {
+    position: sticky;
+    top: 0;
+    background: rgba(224, 229, 236, 0.9);
+    backdrop-filter: blur(10px);
     display: flex;
     justify-content: space-between;
-    background: rgba(0,0,0,0.9);
-    border-bottom: 1px solid var(--neon-yellow);
+    padding: 15px 5%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
 }
 
-.logo span { color: var(--neon-yellow); text-shadow: 0 0 10px var(--neon-yellow); }
-
-/* Hero Glitch Effect */
-.hero {
-    padding: 50px 20px;
-    text-align: center;
-    background: radial-gradient(circle, #1a1a1a 0%, #000 100%);
-}
-
-.hero h1 {
-    font-size: 3rem;
+.status-badge {
+    background: #2ecc71;
     color: white;
-    letter-spacing: 5px;
-    margin-bottom: 0;
-}
-
-/* Progress Bar */
-.progress-container {
-    margin-top: 20px;
-    font-size: 0.8rem;
-    color: var(--neon-blue);
-}
-
-.progress-bar {
-    width: 250px;
-    height: 10px;
-    background: #333;
-    margin: 10px auto;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.progress-fill {
-    width: 10%;
-    height: 100%;
-    background: var(--neon-blue);
-    box-shadow: 0 0 15px var(--neon-blue);
-    transition: width 0.5s ease;
-}
-
-/* Acronym Cards */
-.acronym-grid {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    gap: 20px;
-}
-
-.card {
-    background: #161616;
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    border-radius: 15px;
-    border: 1px solid #333;
-    transition: 0.3s;
-}
-
-.card:hover {
-    border-color: var(--neon-yellow);
-    transform: scale(1.02);
-}
-
-.letter {
-    font-size: 4rem;
-    font-weight: 900;
-    margin-right: 20px;
-    width: 80px;
-    text-align: center;
-}
-
-.chemical { color: #00ff88; text-shadow: 0 0 10px #00ff88; }
-.biological { color: #a2ff00; text-shadow: 0 0 10px #a2ff00; }
-.radiological { color: #ffaa00; text-shadow: 0 0 10px #ffaa00; }
-.nuclear { color: #ff3300; text-shadow: 0 0 10px #ff3300; }
-
-.info h3 { margin: 0; color: white; letter-spacing: 2px; }
-.tagline { font-size: 0.7rem; color: #888; text-transform: uppercase; margin-bottom: 5px; }
-.action-tag {
-    display: inline-block;
-    margin-top: 10px;
-    background: #333;
     padding: 5px 10px;
     font-size: 0.7rem;
     font-weight: bold;
     border-radius: 4px;
-    color: var(--neon-yellow);
 }
 
-/* Sidebar */
-.side-menu {
-    height: 100%; width: 0; position: fixed; z-index: 200;
-    top: 0; right: 0; background: #000; overflow-x: hidden;
-    transition: 0.5s; padding-top: 60px;
+.main-nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: bold;
+    margin-left: 20px;
+    font-size: 0.9rem;
+    transition: 0.3s;
 }
 
-.side-menu a {
-    padding: 20px; text-decoration: none; font-size: 1.5rem;
-    color: var(--neon-yellow); display: block;
-}
+.main-nav a:hover { color: var(--neon-blue); }
 
-.quiz-section {
-    padding: 40px 20px;
-    background: #000;
-}
-
-.quiz-card {
-    background: #111;
-    border: 2px dashed var(--neon-blue);
-    padding: 20px;
-    border-radius: 10px;
+/* Hero Area */
+.hero-screen {
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-}
-
-.options-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-    margin: 20px 0;
-}
-
-.opt-btn {
-    background: transparent;
-    border: 1px solid var(--neon-blue);
+    background: linear-gradient(135deg, #00a8ff 0%, #9c88ff 100%);
     color: white;
-    padding: 12px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: 0.2s;
 }
 
-.opt-btn:hover {
-    background: var(--neon-blue);
-    color: black;
+.hero-screen h1 { font-size: 2.5rem; letter-spacing: 5px; }
+
+/* Dossier Cards */
+.dossier-container {
+    padding: 30px 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
-.rank-display {
+.dossier-card {
+    background: var(--bg-light);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.dossier-card:active { transform: scale(0.98); }
+
+.card-header {
+    background: var(--text-dark);
+    color: var(--bg-light);
+    padding: 10px 20px;
     font-size: 0.8rem;
-    color: var(--neon-yellow);
-    margin-top: 15px;
     letter-spacing: 2px;
 }
 
-#userRank { font-weight: bold; text-decoration: underline; }
+.card-content {
+    padding: 30px;
+}
+
+.gaming-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.intel-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    border-left: 5px solid var(--neon-blue);
+    font-size: 0.9rem;
+}
+
+/* Color Themes for Dossiers */
+.chemical .intel-box { border-color: #2ecc71; }
+.biological .intel-box { border-color: #f1c40f; }
+.radiological .intel-box { border-color: #e67e22; }
+.nuclear .intel-box { border-color: #e74c3c; }
+
+
+.map-section {
+    padding: 50px 5%;
+    background: #f0f3f7;
+}
+
+.section-title {
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.map-container {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+.map-ui {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.region-btn {
+    background: var(--bg-light);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 8px rgb(163,177,198,0.4);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.region-btn:active {
+    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.1);
+    color: var(--neon-blue);
+}
+
+.intel-display {
+    min-height: 100px;
+    padding: 20px;
+    background: #2d3436;
+    color: #00d4ff;
+    border-radius: 10px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    border: 1px solid var(--neon-blue);
+}
