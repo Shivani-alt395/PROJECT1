@@ -1,31 +1,22 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const alertBtn = document.getElementById('alertBtn');
-    const actionBtn = document.getElementById('actionBtn');
-    const banner = document.getElementById('status-banner');
+const menuOpen = document.getElementById('menuOpen');
+const menuClose = document.getElementById('menuClose');
+const sideMenu = document.getElementById('sideMenu');
 
-    // Toggle the Emergency Banner
-    alertBtn.addEventListener('click', () => {
-        if (banner.style.display === 'block') {
-            banner.style.display = 'none';
-            alertBtn.textContent = 'Test Alert';
-            alertBtn.style.background = '#ffcc00';
-        } else {
-            banner.style.display = 'block';
-            alertBtn.textContent = 'Clear Alert';
-            alertBtn.style.background = '#ffffff';
-            alert("ALERT: Emergency protocols engaged. Review the dashboard for safety measures.");
-        }
-    });
+// Open side menu
+menuOpen.addEventListener('click', () => {
+    sideMenu.style.width = "250px";
+    sideMenu.style.borderLeft = "3px solid #ffcc00";
+});
 
-    // Action Guide Popup
-    actionBtn.addEventListener('click', () => {
-        const protocol = `
-            CBRN IMMEDIATE STEPS:
-            1. RECOGNIZE - Unusual smells, sights, or symptoms.
-            2. EVACUATE - Move perpendicular to the wind.
-            3. SHELTER - Go deep inside or high up depending on agent.
-            4. DECONTAMINATE - Strip outer layers and wash.
-        `;
-        alert(protocol);
+// Close side menu
+menuClose.addEventListener('click', () => {
+    sideMenu.style.width = "0";
+    sideMenu.style.borderLeft = "0px";
+});
+
+// Close menu if a link is clicked
+document.querySelectorAll('.side-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        sideMenu.style.width = "0";
     });
 });
