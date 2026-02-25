@@ -1,0 +1,110 @@
+body{
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background:#f4f4f4;
+}
+
+/* HERO */
+.hero{
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    color:white;
+    text-align:center;
+    padding:80px 20px;
+}
+
+.hero h1{
+    font-size:40px;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 25px;
+    background:#4CAF50;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#2e7d32;
+}
+
+/* SECTIONS */
+.section{
+    padding:40px 20px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.center{
+    text-align:center;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap:20px;
+    margin-top:30px;
+}
+
+.mopp-card{
+    background:#1b5e20;
+    color:white;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    transition:0.3s;
+    font-weight:bold;
+}
+
+.mopp-card span{
+    display:block;
+    font-weight:normal;
+    margin-top:10px;
+}
+
+.mopp-card:hover{
+    transform:translateY(-5px);
+    background:#2e7d32;
+}
+
+/* MOPP4 */
+.mopp4{
+    margin-top:40px;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.mopp4 img{
+    width:100%;
+    max-width:500px;
+    margin-top:15px;
+    border-radius:15px;
+}
+
+/* ABOUT */
+.about{
+    background:#263238;
+    color:white;
+    padding:50px 20px;
+    text-align:center;
+}
+
+/* FOOTER */
+footer{
+    background:black;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
