@@ -1,32 +1,24 @@
-const intelData = {
-    europe: ">> ACCESSING CHERNOBYL LOGS...\n>> STATUS: RESTRICTED ZONE\n>> DATA: RADIATION LEAK SENSORS ACTIVE.",
-    asia: ">> ACCESSING FUKUSHIMA DATA...\n>> STATUS: MONITORING\n>> DATA: GROUNDWATER FILTRATION STABLE.",
-    americas: ">> ACCESSING THREE MILE ISLAND...\n>> STATUS: DECOMMISSIONED\n>> DATA: NO NEW THREAT DETECTED."
+const intelDatabase = {
+    chemical: ">> CHEMICAL THREAT DETECTED: Indian Army Standard Operating Procedure (SOP) 04.\n>> Use AP2C or GID-3 for detection.\n>> Antidote: Atropine/PAM autoinjectors.",
+    biological: ">> BIOLOGICAL HAZARD ANALYSED.\n>> Key agents: Anthrax, Plague, Viral Hemorrhagic Fevers.\n>> Protocol: Seal respiratory tract, activate sampling unit (MBU).",
+    radiological: ">> RADIATION MONITORING ACTIVE.\n>> Safety: Time, Distance, Shielding.\n>> Use Teletector 6112 or similar Indian Army issued Dosimeters.",
+    nuclear: ">> NUCLEAR EVENT SURVIVAL.\n>> Thermal Flash Warning: 0-10 Sec. Blast Wave: 10-60 Sec.\n>> Protocol: Drop and Cover. Head away from flash. Shield eyes."
 };
 
-function fetchIntel(region) {
-    const output = document.getElementById('term-output');
-    output.innerHTML = "DECRYPTING...";
+function openModule(type) {
+    const terminal = document.getElementById('term-content');
+    terminal.innerHTML = "DECRYPTING INTEL...";
     
-    // Simulate network delay
+    // Simulate tactical delay
     setTimeout(() => {
-        output.innerHTML = intelData[region];
-    }, 800);
+        terminal.innerHTML = `> ACCESS GRANTED<br>> ${intelDatabase[type]}`;
+        // Scroll to terminal for mobile users
+        document.getElementById('terminal').scrollIntoView({behavior: 'smooth'});
+    }, 600);
 }
 
-// Smooth scrolling for navigation
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-        if (this.hash !== "") {
-            e.preventDefault();
-            const hash = this.hash;
-            document.querySelector(hash).scrollIntoView({
-                behavior: 'smooth'
-            });
-            
-            // Highlight active link
-            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-            this.classList.add('active');
-        }
-    });
-});
+// Add a pulse effect to the header status
+setInterval(() => {
+    const status = document.querySelector('.status');
+    status.style.opacity = status.style.opacity == '0.2' ? '1' : '0.2';
+}, 1000);
