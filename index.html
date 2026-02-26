@@ -3,80 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CBRN // Tactical Intelligence Portal</title>
+    <title>ADG WE | CBRN Tactical Intelligence</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="hud-line"></div>
 
-    <div class="scanline"></div>
-
-    <header class="hud-header">
-        <div class="status-indicator">
-            <span class="dot"></span> SYSTEM ACTIVE
+    <header class="army-header">
+        <div class="army-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Indian_Army_Emblem.png" alt="Indian Army Emblem">
+            <div class="unit-text">
+                <h1>INDIAN ARMY</h1>
+                <p>CBRN DEFENSE CELL</p>
+            </div>
         </div>
-        <div class="logo">CBRN<span>SHIELD</span></div>
+        <div class="status">FIELD OPS: ACTIVE</div>
     </header>
 
     <section class="hero">
-        <div class="glitch-wrapper">
-            <h1 class="glitch-text" data-text="AWARENESS IS DEFENSE">AWARENESS IS DEFENSE</h1>
+        <div class="hero-content">
+            <h2>TACTICAL CBRN INTELLIGENCE</h2>
+            <p>Detection, Protection, and Decontamination Protocols for Frontline Units.</p>
         </div>
-        <p class="subtitle">Global Threat Intelligence & Response Protocol</p>
     </section>
 
-    <main class="content-wrapper">
-        <section id="dossiers" class="section-group">
-            <h2 class="section-label">THREAT DOSSIERS</h2>
-            
-            <div class="dossier-card" id="card-c">
-                <div class="card-num">01</div>
+    <main class="container">
+        <h3 class="section-title">THREAT CLASSIFICATIONS</h3>
+        <div class="grid">
+            <div class="card" onclick="openModule('chemical')">
+                <div class="card-icon">🧪</div>
                 <h3>CHEMICAL</h3>
-                <p>Detection of toxic industrial chemicals and nerve agents.</p>
-                <div class="intel-tag">Senses: Almonds, Garlic, Fresh Grass</div>
+                <p>Nerve, Blister, and Blood agents. Monitoring TIC/TIM hazards.</p>
+                <span class="read-more">DEEP INTEL →</span>
             </div>
 
-            <div class="dossier-card" id="card-b">
-                <div class="card-num">02</div>
+            <div class="card" onclick="openModule('biological')">
+                <div class="card-icon">🦠</div>
                 <h3>BIOLOGICAL</h3>
-                <p>Invisible pathogens. Focus on filtration and high-level hygiene.</p>
-                <div class="intel-tag">Defense: HEPA-Filters, Quarantine</div>
+                <p>Pathogen dispersal (Anthrax, Botulinum). Aerosol detection protocols.</p>
+                <span class="read-more">DEEP INTEL →</span>
             </div>
 
-            <div class="dossier-card" id="card-r">
-                <div class="card-num">03</div>
+            <div class="card" onclick="openModule('radiological')">
+                <div class="card-icon">☢️</div>
                 <h3>RADIOLOGICAL</h3>
-                <p>Scattering of radioactive materials. Protection via Time & Distance.</p>
-                <div class="intel-tag">Protocol: Minimize Exposure Time</div>
+                <p>RDD (Dirty Bomb) mitigation. Alpha, Beta, Gamma radiation monitoring.</p>
+                <span class="read-more">DEEP INTEL →</span>
             </div>
 
-            <div class="dossier-card" id="card-n">
-                <div class="card-num">04</div>
+            <div class="card" onclick="openModule('nuclear')">
+                <div class="card-icon">💥</div>
                 <h3>NUCLEAR</h3>
-                <p>High-yield thermal and blast energy. Immediate cover required.</p>
-                <div class="intel-tag">Protocol: Lie Flat, Face Down</div>
+                <p>High-yield detonation. Flash, Blast, and Fallout survival.</p>
+                <span class="read-more">DEEP INTEL →</span>
             </div>
-        </section>
+        </div>
 
-        <section id="map" class="section-group">
-            <h2 class="section-label">GLOBAL INCIDENT LOG</h2>
-            <div class="terminal">
-                <div class="terminal-nav">
-                    <button class="term-btn" onclick="fetchIntel('europe')">EU_INTEL</button>
-                    <button class="term-btn" onclick="fetchIntel('asia')">ASIA_INTEL</button>
-                    <button class="term-btn" onclick="fetchIntel('americas')">AMER_INTEL</button>
-                </div>
-                <div id="term-output" class="term-body">
-                    > SELECT REGION TO DECRYPT...
-                </div>
-            </div>
-        </section>
+        
+
+        <h3 class="section-title">HISTORICAL ANALYSIS</h3>
+        <div class="terminal" id="terminal">
+            <div class="term-header">INTEL_TERMINAL_V1.04</div>
+            <div id="term-content">> SYSTEM READY. SELECT THREAT MODULE ABOVE FOR DATA.</div>
+        </div>
     </main>
 
-    <nav class="bottom-nav">
-        <a href="#" class="nav-link active"><span>🏠</span>HUB</a>
-        <a href="#dossiers" class="nav-link"><span>📂</span>INTEL</a>
-        <a href="#map" class="nav-link"><span>📡</span>MAP</a>
-    </nav>
+    
 
     <script src="script.js"></script>
 </body>
