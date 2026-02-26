@@ -1,43 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Generate CBRN QR Code</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>CBRN Portal Access Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
-        body{
-            text-align:center;
-            font-family: Arial;
-            background:#f2f2f2;
-            padding:40px;
-        }
-
-        .card{
-            background:white;
-            padding:30px;
-            border-radius:15px;
-            box-shadow:0 5px 15px rgba(0,0,0,0.1);
-            display:inline-block;
-        }
-
-        img{
-            margin-top:20px;
-            width:250px;
-            height:250px;
-        }
+        body { background: #1a1a1a; color: white; font-family: sans-serif; text-align: center; padding: 50px; }
+        #qrcode { background: white; padding: 20px; display: inline-block; border-radius: 10px; margin-top: 20px; }
+        input { padding: 10px; width: 300px; border-radius: 5px; border: none; }
+        button { padding: 10px 20px; background: #4b5320; color: white; border: none; cursor: pointer; border-radius: 5px; }
     </style>
 </head>
-
 <body>
+    <h1>CBRN Portal Access</h1>
+    <p>Enter the URL where index.html is hosted:</p>
+    <input type="text" id="url" value="https://your-hosted-link.com">
+    <button onclick="generateQR()">Generate Access QR</button>
+    <br>
+    <div id="qrcode"></div>
 
-<div class="card">
-    <h1 style="color:darkgreen;">Scan to View CBRN Website</h1>
-
-    <img 
-    src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://shivani-alt395.github.io/PROJECT1/" 
-    alt="QR Code">
-
-</div>
-
+    <script>
+        function generateQR() {
+            document.getElementById("qrcode").innerHTML = "";
+            new QRCode(document.getElementById("qrcode"), document.getElementById("url").value);
+        }
+    </script>
 </body>
 </html>
